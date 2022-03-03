@@ -53,6 +53,8 @@ class RecentSection extends StatelessWidget {
           SizedBox(
             height: 90.h,
             child: ListView.builder(
+                physics: const BouncingScrollPhysics(
+                    parent: AlwaysScrollableScrollPhysics()),
                 shrinkWrap: true,
                 itemCount: listrecent.length,
                 scrollDirection: Axis.horizontal,

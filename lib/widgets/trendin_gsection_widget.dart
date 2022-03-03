@@ -39,6 +39,8 @@ class TrendingSection extends StatelessWidget {
           ),
           Expanded(
             child: StaggeredGridView.countBuilder(
+              physics: const BouncingScrollPhysics(
+                  parent: AlwaysScrollableScrollPhysics()),
               shrinkWrap: true,
               crossAxisCount: 3,
               itemCount: listtrending.length,

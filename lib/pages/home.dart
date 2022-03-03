@@ -59,6 +59,8 @@ class Home extends GetView<MyDrawerController> {
           ),
           Expanded(
             child: ListView(
+              physics: const BouncingScrollPhysics(
+                  parent: AlwaysScrollableScrollPhysics()),
               children: [
                 SliderImage(listImg: listImg),
                 SizedBox(
@@ -80,6 +82,8 @@ class Home extends GetView<MyDrawerController> {
                   width: double.infinity,
                   height: 330.h,
                   child: ListView.builder(
+                      physics: const BouncingScrollPhysics(
+                          parent: AlwaysScrollableScrollPhysics()),
                       shrinkWrap: true,
                       itemCount: listrestuarant.length,
                       scrollDirection: Axis.horizontal,
@@ -102,6 +106,8 @@ class Home extends GetView<MyDrawerController> {
                   height: 330.h,
                   child: ListView.builder(
                       shrinkWrap: true,
+                      physics: const BouncingScrollPhysics(
+                          parent: AlwaysScrollableScrollPhysics()),
                       itemCount: listrestuarant.length,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) =>
@@ -117,15 +123,13 @@ class Home extends GetView<MyDrawerController> {
                         fontWeight: FontWeight.w600),
                   ),
                 ),
-                SizedBox(
-                  height: 400,
-                  child: ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: listrestuarant.length,
-                      itemBuilder: (context, index) => FullCard(
-                            restuarantmodel: listrestuarant[index],
-                          )),
-                ),
+                ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: listrestuarant.length,
+                    itemBuilder: (context, index) => FullCard(
+                          restuarantmodel: listrestuarant[index],
+                        )),
               ],
             ),
           ),
